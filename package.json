@@ -1,0 +1,27 @@
+{
+  "name": "competencias-web1",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/run-vite.js",
+    "dev:https": "node scripts/ensure-cert.js && node scripts/run-vite.js --https",
+    "dev:server": "node server/index.js",
+    "dev:server:https": "node scripts/ensure-cert.js && node server/index.js --https",
+    "dev:full": "concurrently \"npm:dev:server\" \"npm:dev\"",
+    "dev:full:https": "concurrently \"npm:dev:server:https\" \"npm:dev:https\"",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.3",
+    "concurrently": "^9.0.1",
+    "selfsigned": "^2.4.1",
+    "vite": "^5.4.8"
+  }
+}

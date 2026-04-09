@@ -1,0 +1,55 @@
+:root {
+  --font-family-base: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --page-background: #1d1e24;
+  --shell-background: #23242c;
+  --panel-background: #2a2b34;
+  --panel-border: rgba(255, 255, 255, 0.05);
+  --text-primary: #f4f5f7;
+  --text-secondary: #9498aa;
+  --text-muted: #72778a;
+  --accent-teal: #15d19a;
+  --accent-blue: #4f91ff;
+  --accent-amber: #d8ab12;
+  --accent-red: #ff5d62;
+  --accent-green: #29d178;
+  --shadow-soft: 0 18px 40px rgba(0, 0, 0, 0.28);
+  --radius-shell: 18px;
+  --radius-panel: 10px;
+  --page-padding: 20px;
+  --transition-base: 180ms ease;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  font-family: var(--font-family-base);
+  background: var(--page-background);
+  color: var(--text-primary);
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  color: inherit;
+  background: transparent;
+}
+
+svg {
+  display: block;
+}
+
+#app {
+  min-height: 100vh;
+}
