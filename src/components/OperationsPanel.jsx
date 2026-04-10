@@ -44,11 +44,6 @@ export function OperationsPanel({ panel, trucks }) {
     <section className={OPERATIONS_CONFIG.cardClassName}>
       <div className="panel-card__header">
         <span>{panel.title}</span>
-        <button className="panel-card__menu" type="button" aria-label="Opciones">
-          <svg>
-            <use href="#icon-menu"></use>
-          </svg>
-        </button>
       </div>
       <div className="operations-panel__highlights">
         {panel.highlights.map((item) => (

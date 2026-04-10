@@ -77,11 +77,6 @@ export function FacilityScene({ panel }) {
       <aside className="iot-card">
         <div className="panel-card__header">
           <span>{panel.title}</span>
-          <button className="panel-card__menu" type="button" aria-label="Opciones">
-            <svg>
-              <use href="#icon-menu"></use>
-            </svg>
-          </button>
         </div>
         <ul className="sensor-list">
           {panel.sensors.map((sensor) => (

@@ -16,11 +16,6 @@ export function TruckTable({ table, trucks }) {
     <section className={TABLE_CONFIG.tableCardClassName}>
       <div className="panel-card__header">
         <span>{table.title}</span>
-        <button className="panel-card__menu" type="button" aria-label="Opciones">
-          <svg>
-            <use href="#icon-menu"></use>
-          </svg>
-        </button>
       </div>
       <div className="table-shell">
         <table className="data-table">

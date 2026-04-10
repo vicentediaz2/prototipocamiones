@@ -48,11 +48,6 @@ export function TrafficChart({ chart }) {
     <section className={CHART_CONFIG.chartClassName}>
       <div className="panel-card__header">
         <span>{chart.title}</span>
-        <button className="panel-card__menu" type="button" aria-label="Opciones">
-          <svg>
-            <use href="#icon-menu"></use>
-          </svg>
-        </button>
       </div>
       <div className="traffic-chart">
         <div className="traffic-chart__grid"></div>

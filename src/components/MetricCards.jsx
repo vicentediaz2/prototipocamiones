@@ -31,11 +31,6 @@ function MetricCard({ card }) {
     <article className={`${METRIC_CONFIG.cardClassName} ${METRIC_CONFIG.cardClassName}--${card.accent}`}>
       <div className="panel-card__header">
         <span>{card.label}</span>
-        <button className="panel-card__menu" type="button" aria-label="Opciones">
-          <svg>
-            <use href="#icon-menu"></use>
-          </svg>
-        </button>
       </div>
       <div className="metric-card__value-row">
         <strong>{card.value}</strong>
