@@ -35,45 +35,7 @@ function TrafficLights() {
 export function FacilityScene({ panel }) {
   return (
     <section className="scene-card">
-      <div className="facility-scene">
-        <div className="facility-scene__ground"></div>
-        <div className="facility-scene__building facility-scene__building--top">
-          <div className="facility-scene__roof"></div>
-          <div className="facility-scene__wall">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div className="facility-scene__building facility-scene__building--bottom">
-          <div className="facility-scene__roof"></div>
-          <div className="facility-scene__wall">
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </div>
-        <div className="facility-scene__truck facility-scene__truck--main"></div>
-        <div className="facility-scene__truck facility-scene__truck--secondary"></div>
-        <div className="facility-scene__car"></div>
-        <div className="facility-scene__cones">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div className="facility-scene__greens">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div className="facility-scene__lights facility-scene__lights--left">
-          <TrafficLights />
-        </div>
-        <div className="facility-scene__lights facility-scene__lights--right">
-          <TrafficLights />
-        </div>
-      </div>
+      <img src="pasar.png" className="imagen-camion"></img>
       <aside className="iot-card">
         <div className="panel-card__header">
           <span>{panel.title}</span>
@@ -83,7 +45,7 @@ export function FacilityScene({ panel }) {
             <SensorItem key={sensor.label} sensor={sensor} />
           ))}
         </ul>
-        <div className="iot-card__logs">
+{/*         <div className="iot-card__logs">
           <small>Recent Logs</small>
           <ul>
             {panel.recentLogs.map((item) => (
@@ -94,7 +56,7 @@ export function FacilityScene({ panel }) {
               </li>
             ))}
           </ul>
-        </div>
+        </div> */}
       </aside>
     </section>
   );

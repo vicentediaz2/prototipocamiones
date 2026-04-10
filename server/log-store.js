@@ -2,17 +2,6 @@ const LOG_LEVELS = ["INFO", "WARN", "ERROR"];
 
 const SENSOR_CATALOG = [
   {
-    sensorId: "gate-reader-01",
-    sensorName: "Gate Reader 01",
-    zone: "Acceso Sur",
-    messages: [
-      "Lectura RFID completada",
-      "Camion autorizado para ingreso",
-      "Patente validada contra agenda",
-      "Control de acceso sincronizado"
-    ]
-  },
-  {
     sensorId: "gate-reader-02",
     sensorName: "Gate Reader 02",
     zone: "Acceso Norte",
@@ -23,17 +12,7 @@ const SENSOR_CATALOG = [
       "Ingreso liberado por seguridad"
     ]
   },
-  {
-    sensorId: "dock-scale-01",
-    sensorName: "Balanza Patio",
-    zone: "Patio Central",
-    messages: [
-      "Peso bruto registrado",
-      "Variacion de carga dentro de rango",
-      "Revision de peso pendiente",
-      "Pesaje final enviado a ERP"
-    ]
-  },
+
   {
     sensorId: "temp-node-04",
     sensorName: "ESP32 Node 04",
@@ -43,17 +22,6 @@ const SENSOR_CATALOG = [
       "Sensor reconectado tras microcorte",
       "Lectura fuera de rango detectada",
       "Calibracion automatica aplicada"
-    ]
-  },
-  {
-    sensorId: "yard-cam-02",
-    sensorName: "Yard Cam 02",
-    zone: "Patio Norte",
-    messages: [
-      "Movimiento detectado en patio",
-      "Snapshot enviado al panel",
-      "Cola de camiones actualizada",
-      "Visibilidad reducida por neblina"
     ]
   },
   {

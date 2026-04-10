@@ -6,6 +6,7 @@ const bin = process.platform === "win32" ? "npx.cmd" : "npx";
 
 const child = spawn(bin, ["vite", "--host"], {
   stdio: "inherit",
+  shell: true,
   env: {
     ...process.env,
     APP_HTTPS: useHttps ? "true" : "false"

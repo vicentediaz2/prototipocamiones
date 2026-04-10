@@ -18,7 +18,9 @@
   --page-padding: 20px;
   --transition-base: 180ms ease;
 }
-
+.imagen-camion{
+  height: 42rem;
+}
 * {
   box-sizing: border-box;
 }

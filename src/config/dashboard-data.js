@@ -11,9 +11,9 @@ const SIDEBAR_ITEMS = [
   { id: "dashboard", label: "Dashboard", icon: "grid", viewTitle: "Panel de Gestion Logistica" },
   { id: "fleet", label: "Log Camiones", icon: "truck", viewTitle: "Ultimos Movimientos De Camiones" },
   { id: "sensors", label: "En Planta", icon: "wifi", viewTitle: "Camiones Dentro De Planta" },
-  { id: "alerts", label: "Alertas", icon: "alert", viewTitle: "Panel de Gestion Logistica" },
-  { id: "reports", label: "Truck Events", icon: "report", viewTitle: "Vista Bruta De Truck Events" },
-  { id: "settings", label: "Configuracion", icon: "settings", viewTitle: "Panel de Gestion Logistica" }
+/*   { id: "alerts", label: "Alertas", icon: "alert", viewTitle: "Panel de Gestion Logistica" },*/  
+/*   { id: "reports", label: "Truck Events", icon: "report", viewTitle: "Vista Bruta De Truck Events" },*/  
+/*   { id: "settings", label: "Configuracion", icon: "settings", viewTitle: "Panel de Gestion Logistica" }*/
 ];
 
 const KPI_CARDS = [
@@ -303,8 +303,7 @@ const FACILITY_PANEL = {
   sensors: [
     { label: "Fibase Cloud", state: "Connected", tone: "amber" },
     { label: "ESP32 Nodes", state: "Offline", tone: "teal" },
-    { label: "Gate Reader 01", state: "Stable", tone: "teal" },
-    { label: "Balanza Patio", state: "Stable", tone: "amber" }
+    { label: "ESP32 Nodes", state: "Connected", tone: "teal" },
   ],
   recentLogs: [
     {
