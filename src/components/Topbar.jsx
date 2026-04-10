@@ -37,11 +37,11 @@ export function Topbar({ header }) {
               <span>({header.userRole})</span>
               <small>{header.scheduleLabel}</small>
             </div>
-            <svg className="topbar__dropdown">
+{/*             <svg className="topbar__dropdown">
               <use href={`#icon-${TOPBAR_CONFIG.dropdownIcon}`}></use>
-            </svg>
+            </svg> */}
           </div>
-          <div className="topbar__utilities">
+{/*           <div className="topbar__utilities">
             {TOPBAR_CONFIG.utilityIcons.map((iconId) => (
               <button key={iconId} className="topbar__utility" type="button" aria-label={iconId}>
                 <svg>
@@ -49,7 +49,7 @@ export function Topbar({ header }) {
                 </svg>
               </button>
             ))}
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
