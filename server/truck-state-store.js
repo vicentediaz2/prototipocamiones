@@ -59,8 +59,8 @@ function matchesTruck(truck, filters = {}) {
   );
 }
 
-export function getTruckStates(filters = {}) {
-  const events = getTruckEvents({ limit: 200, sort: "desc" });
+export async function getTruckStates(filters = {}) {
+  const events = await getTruckEvents({ limit: 200, sort: "desc" });
 
   return truckCatalog
     .map((truck) => {
@@ -90,8 +90,8 @@ export function getTruckStates(filters = {}) {
     });
 }
 
-export function getTruckStatesSummary() {
-  const trucks = getTruckStates();
+export async function getTruckStatesSummary() {
+  const trucks = await getTruckStates();
 
   return {
     total: trucks.length,

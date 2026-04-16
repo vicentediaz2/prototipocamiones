@@ -1,3 +1,4 @@
+import "./env.js";
 import fs from "node:fs";
 import http from "node:http";
 import https from "node:https";
@@ -22,38 +23,55 @@ const useHttps = process.argv.includes("--https");
 
 app.use(express.json());
 
-app.get("/api/health", (_req, res) => {
-  res.json({
-    ok: true,
-    message: "Backend operativo",
-    protocol: useHttps ? "https" : "http",
-    logs: getLogSummary(),
-    truckEvents: getTruckEventsSummary(),
-    truckStates: getTruckStatesSummary()
-  });
-});
-
-app.get("/api/truck-events", (req, res) => {
-  const events = getTruckEvents({
-    limit: req.query.limit,
-    sort: req.query.sort,
-    truckId: req.query.truckId,
-    plate: req.query.plate,
-    estado: req.query.estado,
-    fecha: req.query.fecha,
-    search: req.query.search
-  });
-
-  res.json({
-    total: events.length,
-    items: events
-  });
-});
-
-app.post("/api/truck-events", (req, res) => {
+app.get("/api/health", async (_req, res) => {
   try {
-    const event = appendTruckEvent(req.body);
-    const truck = getTruckStates().find((item) => item.id === event.truckId || item.plate === event.plate) ?? null;
+    const [truckEvents, truckStates] = await Promise.all([getTruckEventsSummary(), getTruckStatesSummary()]);
+
+    res.json({
+      ok: true,
+      message: "Backend operativo",
+      protocol: useHttps ? "https" : "http",
+      logs: getLogSummary(),
+      truckEvents,
+      truckStates
+    });
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      message: error.message
+    });
+  }
+});
+
+app.get("/api/truck-events", async (req, res) => {
+  try {
+    const events = await getTruckEvents({
+      limit: req.query.limit,
+      sort: req.query.sort,
+      truckId: req.query.truckId,
+      plate: req.query.plate,
+      estado: req.query.estado,
+      fecha: req.query.fecha,
+      search: req.query.search
+    });
+
+    res.json({
+      total: events.length,
+      items: events
+    });
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      message: error.message
+    });
+  }
+});
+
+app.post("/api/truck-events", async (req, res) => {
+  try {
+    const event = await appendTruckEvent(req.body);
+    const trucks = await getTruckStates();
+    const truck = trucks.find((item) => item.id === event.truckId || item.plate === event.plate) ?? null;
 
     res.status(201).json({
       ok: true,
@@ -101,17 +119,24 @@ app.get("/api/logs/latest-by-sensor", (_req, res) => {
   });
 });
 
-app.get("/api/trucks/state", (req, res) => {
-  const trucks = getTruckStates({
-    presenceState: req.query.presenceState,
-    search: req.query.search
-  });
+app.get("/api/trucks/state", async (req, res) => {
+  try {
+    const trucks = await getTruckStates({
+      presenceState: req.query.presenceState,
+      search: req.query.search
+    });
 
-  res.json({
-    total: trucks.length,
-    summary: getTruckStatesSummary(),
-    items: trucks
-  });
+    res.json({
+      total: trucks.length,
+      summary: await getTruckStatesSummary(),
+      items: trucks
+    });
+  } catch (error) {
+    res.status(500).json({
+      ok: false,
+      message: error.message
+    });
+  }
 });
 
 const certDir = path.resolve("certs");

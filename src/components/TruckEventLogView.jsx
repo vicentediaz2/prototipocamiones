@@ -4,7 +4,7 @@ const TRUCK_EVENT_LOG_CONFIG = {
   title: "Vista Bruta De Truck Events",
   compactTitle: "Log Camiones",
   headers: ["Evento", "ID Camion", "Patente", "Estado", "Fecha", "Hora"],
-  compactHeaders: ["Patente", "Ultimo Movimiento", "Fecha", "Hora"],
+  compactHeaders: ["Patente", "Ultimo Movimiento", "Puerta", "Fecha", "Hora"],
   emptyMessage: "No hay movimientos registrados."
 };
 
@@ -44,6 +44,7 @@ export function TruckEventLogView({ events, compact = false }) {
                       <td>
                         <EventStatePill estado={event.estado} />
                       </td>
+                      <td>{event.gate ?? "--"}</td>
                       <td>{event.fecha}</td>
                       <td>{event.hora}</td>
                     </>
@@ -55,6 +56,7 @@ export function TruckEventLogView({ events, compact = false }) {
                       <td>
                         <EventStatePill estado={event.estado} />
                       </td>
+                      <td>{event.gate ?? "--"}</td>
                       <td>{event.fecha}</td>
                       <td>{event.hora}</td>
                     </>
